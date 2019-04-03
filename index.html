@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		.my-class {
+			color: red;
+			k
+		}
+	</style>
+	<body>
+		<div id="wrap">
+			{{ message }}
+			<span>
+				{{ messagespan }}
+			</span>
+			<p>
+				{{ messagep }}
+			</p>
+
+			<div class="wodetitle" v-bind:title="mytitle">
+				{{ mytitle }}
+			</div>
+			<div class="box" v-if="flag">
+				woshibox
+			</div>
+			<div class="wodeif">
+				<ul>
+					<li v-for="(value,index) in b" :key="index">
+						{{ value.a }}
+					</li>
+				</ul>
+			</div>
+			<div v-bind:class="[activeClass, comeClass]">
+				我是class与style
+			</div>
+			<div class="my-footer" v-on:click="handleAddClick">
+				<span class="my-footer-span" v-if="spanFlag">
+					我是footer下的span标签
+				</span>
+			</div>
+		</div>
+		
+	</body>
+	<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		console.log(Vue);
+		
+		var vm = new Vue({
+			el: "#wrap",
+			data: function() {
+				return {
+					message: "woshiwarp",
+					messagespan: "woshispan",
+					messagep: "woship",
+					mytitle: "woshititle",
+					flag: true,
+					b: [{
+							a: "aaaaaaaaaa"
+						},
+						{
+							a: "aadddddddd"
+						},
+						{
+							a: "aaavaavvvvvv"
+						},
+						{
+							a: "aaaaadddddddddaa"
+						}
+					],
+					activeClass: "my-class",
+					comeClass: "ny-common-class",
+					spanFlag: true
+				}
+			},
+			methods: {
+				handleAddClick: function() {
+					console.log(this);
+					this.ac();
+				},
+				ac() {
+					this.message = "mmmmmmmmm";
+				}
+			}
+		});
+	</script>
+</html>

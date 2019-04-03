@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="div">
+			{{p}}
+			<div-p v-on:zifangfa="zifizujian"></div-p>
+		</div>
+	</body>
+	<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		Vue.component('div-p',{
+			name:"div-p",
+			template:
+			`
+			<div>
+				<p @click="$emit('zifangfa',divpp)">{{zujianp}}</p>
+			</div>
+			`,
+			data:function () {
+				return{
+					zujianp:"nnnnnnnnnnnnnnnnn",
+					divpp:"1"
+				}
+			}
+		});
+		var vm = new Vue({
+			el:"#div",
+			data:function () {
+				return{
+					p:"p"
+				}
+			},
+			methods:{
+				zifizujian:function (data) {
+					console.log(data,"data");
+				}
+			}
+		})
+	</script>
+</html>
